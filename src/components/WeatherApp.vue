@@ -38,12 +38,19 @@ export default {
       loading: false
     }
   },
+  created () {
+    this.checkUserLocation()
+  },
   computed: {
     ...mapGetters([
       'cityInfo'
     ])
   },
   methods: {
+    async checkUserLocation () {
+      const location = await this.$getLocation()
+      await this.getAddressData({'latitude': location.lat, 'longitude': location.lng})
+    },
     /**
      * When the location found
      * @param {Object} addressData Data of the found location
