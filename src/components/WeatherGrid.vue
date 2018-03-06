@@ -1,5 +1,8 @@
 <template>
     <div v-if="!!weatherInfo.avgPressure">
+        <div class="weather-city-info">
+            Weather in {{ cityInfo.name }}, {{ cityInfo.country}}
+        </div>
         <div class="weather-avg-pressure">
             Average pressure for the week: {{ weatherInfo.avgPressure }} mb
         </div>
@@ -39,7 +42,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'weatherInfo'
+      'weatherInfo',
+      'cityInfo'
     ])
   },
   methods: {
@@ -57,6 +61,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .weather-city-info {
+      font-size: 20px;
+      padding-bottom: 30px;
+    }
+
     .weather-avg-pressure {
         color: #757575;
         padding-bottom: 20px;

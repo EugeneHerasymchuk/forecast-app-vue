@@ -16,8 +16,6 @@ const actions = {
     Store city data to Vuex
    */
   async setCityInfo ({commit, dispatch}, cityInfo) {
-    commit('SET_CITY_INFO', cityInfo)
-
     await dispatch('getWeatherByCoordinates', {'lat': cityInfo.latitude, 'lon': cityInfo.longitude})
   },
 
@@ -27,6 +25,7 @@ const actions = {
   async getWeatherByCoordinates ({commit}, {lat, lon}) {
     const weatherData = (await api.getWeatherData(lat, lon)).data
 
+    commit('SET_CITY_INFO', weatherData.city)
     commit('SET_WEATHER_DATA', weatherData)
   }
 }
