@@ -1,7 +1,7 @@
 {
   "name": "forecast-app",
   "version": "1.0.0",
-  "description": "Test project for Architech",
+  "description": "",
   "author": "Yevhenii Herasymchuk <evhenii.herasymchuk@gmail.com>",
   "private": true,
   "scripts": {
